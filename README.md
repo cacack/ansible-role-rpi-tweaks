@@ -1,2 +1,2 @@
 # ansible-role-rpi-tweaks
-Apply tweaks to base RaspberryPI 2 NetBoot install using Ansible.
+Apply tweaks [mentioned in Raspbian Netinstaller docs](https://github.com/debian-pi/raspbian-ua-netinst/#first-boot) to base install using Ansible.
