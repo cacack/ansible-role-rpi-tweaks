@@ -6,8 +6,7 @@
     - rng-tools
 
 - name: Create swap
-  shell: dd if=/dev/zero of=/swap bs=1M count={{ swap_size_mb }} && mkswap /swap && chown og-r /swap
-  creates: /swap
+  shell: dd if=/dev/zero of=/swap bs=1M count={{ swap_size_mb }} && mkswap /swap && chmod og-r /swap creates=/swap
 
 - name: Enable swap
   lineinfile:
