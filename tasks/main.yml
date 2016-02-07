@@ -4,9 +4,13 @@
   with_items:
     - raspi-copies-and-fills
     - rng-tools
+  tags: [ 'tweaks', 'packages' ]
 
 - name: Create swap
-  shell: dd if=/dev/zero of=/swap bs=1M count={{ swap_size_mb }} && mkswap /swap && chmod og-r /swap creates=/swap
+  shell: dd if=/dev/zero of=/swap bs=1M count={{ swap_size_mb }} && mkswap /swap && chmod og-r /swap
+  args:
+    creates: /swap
+  tags: [ 'tweaks', 'swap' ]
 
 - name: Enable swap
   lineinfile:
@@ -16,6 +20,7 @@
     backup: yes
     create: no
     insertafter: EOF
+  tags: [ 'tweaks', 'swap' ]
 
 - name: Enable random number generator module
   lineinfile:
@@ -23,3 +28,4 @@
     line: bcm2708-rng
     state: present
     backup: yes
+  tags: [ 'tweaks', 'rng' ]
